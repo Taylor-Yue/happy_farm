@@ -1,51 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".the_root_page_activity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:name="com.example.happy_farm.fragment.find_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="第二个页面"
-        tools:layout_editor_absoluteX="-27dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_above="@id/activity_the_root_page_activity_image"
+        tools:layout="@layout/find_fragment">
+    </FrameLayout>
 
     <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="64dp"
+        android:id="@+id/activity_the_root_page_activity_image"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="37dp">
+        android:layout_alignParentBottom="true"
+        tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/Image_find"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ico_bar2" />
+            android:src="@drawable/ico_bar1"/>
 
-
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/Image_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ico_bar3"
-            tools:layout_editor_absoluteX="66dp"
-            tools:layout_editor_absoluteY="37dp" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@drawable/ico_bar2" />
+        <ImageButton
+            android:id="@+id/Image_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ico_bar1"
-            tools:layout_editor_absoluteX="287dp"
-            tools:layout_editor_absoluteY="37dp" />
+            android:src="@drawable/ico_bar3"/>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

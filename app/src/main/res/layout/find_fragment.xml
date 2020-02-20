@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+    tools:context=".fragment.find_fragment">
+<ScrollView
+    android:id="@+id/find_fragment_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="false">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ViewFlipper
+            android:id="@+id/find_fragment_ViewFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+        </ViewFlipper>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--<ListView-->
+                <!--android:id="@+id/find_fragment_ListView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="370dp">-->
+            <!--</ListView>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/find_fragment_RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="160dp" />-->
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

@@ -15,13 +15,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="160dp"
             android:orientation="vertical">
 
@@ -30,36 +23,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
+                android:contentDescription="@string/Count"
                 android:src="@drawable/ico" />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="vertical">
 
-            <LinearLayout
+           <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical">-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <Space
-                        android:layout_width="100dp"
+                        android:layout_width="75dp"
                         android:layout_height="match_parent"/>
                     <TextView
                         android:id="@+id/Text_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="账号:">
+                        android:text="@string/Count">
                     </TextView>
+
                     <EditText
+                        android:id="@+id/user"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/user">
-                    </EditText>
+                        android:autofillHints="@string/activity_main_user_hint"
+                        android:hint="@string/activity_main_user_hint"
+                        android:inputType="textWebEmailAddress|phone" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,22 +65,25 @@
                     android:orientation="horizontal"
                     >
                     <Space
-                        android:layout_width="100dp"
+                        android:layout_width="75dp"
                         android:layout_height="match_parent"/>
                     <TextView
                         android:id="@+id/Text_password"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:text="密码:">
+                        android:text="@string/Password">
                     </TextView>
                     <EditText
                         android:layout_height="wrap_content"
                         android:layout_width="200dp"
                         android:id="@+id/password"
+                        android:autofillHints="@string/activity_main_password_hint"
+                        android:hint="@string/activity_main_password_hint"
+                        android:inputType="textPassword"
                         >
                     </EditText>
                 </LinearLayout>
-            </LinearLayout>
+            <!--</LinearLayout>-->
         </LinearLayout>
         <LinearLayout
             android:layout_height="250dp"
@@ -99,9 +100,8 @@
                     android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
                     android:background="@drawable/btn_selector"
-                    android:text="登录"
+                    android:text="@string/Login"
                     android:textColor="#ffffff"/>
             </LinearLayout>
             <LinearLayout
@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_selector_register"
-                    android:text="注册"
+                    android:text="@string/activity_main_register"
                     android:textColor="#ffffff">
                 </Button>
             </LinearLayout>

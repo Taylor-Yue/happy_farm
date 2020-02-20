@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.login:
-                SQLiteDatabase stuDb = SQLiteDatabase.openOrCreateDatabase(getFilesDir() + "/login.db", null);
+                Intent intent = new Intent(MainActivity.this,the_root_page_activity.class);
+                startActivity(intent);
+
+
+                /*SQLiteDatabase stuDb = SQLiteDatabase.openOrCreateDatabase(getFilesDir() + "/login.db", null);
                 File a;
                 a = getFilesDir();
 
@@ -59,10 +63,10 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
                 } else {
                     Toast.makeText(MainActivity.this, "账号或密码不存在！", Toast.LENGTH_SHORT).show();
                     Toast.makeText(MainActivity.this, inputText_user + "!", Toast.LENGTH_SHORT).show();
-                }
+                }*/
                 break;
             case R.id.register:
-                Intent intent = new Intent(MainActivity.this, registerPage.class);
+                intent = new Intent(MainActivity.this, registerPage.class);
                 startActivity(intent);
                 break;
                 default:

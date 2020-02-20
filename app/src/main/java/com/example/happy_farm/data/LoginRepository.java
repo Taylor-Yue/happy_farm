@@ -18,6 +18,7 @@ public class LoginRepository {
 
     // private constructor : singleton access
     private LoginRepository(LoginDataSource dataSource) {
+
         this.dataSource = dataSource;
     }
 

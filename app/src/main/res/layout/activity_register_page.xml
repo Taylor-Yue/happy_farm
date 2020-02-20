@@ -19,7 +19,8 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="24dp"
 
-        android:hint="邮箱"
+        android:hint="@string/email"
+        android:autofillHints="@string/email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +35,8 @@
         android:layout_marginTop="180dp"
         android:layout_marginEnd="24dp"
 
-        android:hint="电话"
+        android:hint="@string/phone"
+        android:autofillHints="@string/phone"
         android:inputType="phone"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +52,8 @@
         android:layout_marginTop="124dp"
         android:layout_marginEnd="24dp"
 
-        android:hint="密码"
+        android:hint="@string/Password"
+        android:autofillHints="@string/Password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -67,7 +70,8 @@
         android:layout_marginTop="208dp"
         android:layout_marginEnd="24dp"
 
-        android:hint="确认密码"
+        android:hint="@string/activity_register_page_again_password"
+        android:autofillHints="@string/activity_register_page_again_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -86,7 +90,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
         android:enabled="false"
-        android:hint="注册"
+        android:hint="@string/activity_register_page_register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

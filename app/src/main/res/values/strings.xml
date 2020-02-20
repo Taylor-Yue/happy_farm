@@ -11,4 +11,15 @@
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_phone">"Phone"</string>
     <string name="Confirm_prompt_password">"Confirm Password"</string>
+    <string name="Count">账号：</string>
+    <string name="Password">密码：</string>
+    <string name="Login">登陆</string>
+    <string name="activity_main_register">注册</string>
+    <string name="activity_main_user_hint">请输入手机号或邮箱</string>
+    <string name="activity_main_password_hint">请输入密码</string>
+    <string name="two">第二个页面</string>
+    <string name="email">邮箱</string>
+    <string name="phone">电话</string>
+    <string name="activity_register_page_again_password">确认密码</string>
+    <string name="activity_register_page_register">注册</string>
 </resources>

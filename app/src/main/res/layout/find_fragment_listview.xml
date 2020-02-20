@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".the_root_page_activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/find_fragment_ListView_imageView"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="72dp"
+            android:maxWidth="72dp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/find_fragment_ListView_title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/find_fragment_ListView_Introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:padding="10dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
