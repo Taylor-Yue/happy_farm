@@ -1,5 +1,6 @@
 package com.example.happy_farm.fragment;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.GestureDetector;
@@ -119,8 +120,8 @@ public class find_fragment extends Fragment {
 
         /********************************ListView实现*****************************************/
         mRecyclerView = view.findViewById(R.id.find_fragment_RecyclerView);
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));
 
 
         List<Map<String, Object>> listitem = new ArrayList<Map<String, Object>>();//建立ListMap对象
@@ -132,7 +133,9 @@ public class find_fragment extends Fragment {
         }
 
         //创建LinearApter适配器
-        LinearAdapter adapter = new LinearAdapter(getActivity(),listitem,arrayImageid);
+        LinearAdapter adapter = new LinearAdapter(getActivity(),listitem,arrayImageid,R.layout.find_fragment_listview,
+                new String[]{"title","introduction"},
+                new int[]{R.id.find_fragment_ListView_imageView,R.id.find_fragment_ListView_title,R.id.find_fragment_ListView_Introduction});
 
         try{
             adapter.setItemListener(new LinearAdapter.onRecyclerItemClickerListener() {
@@ -146,7 +149,10 @@ public class find_fragment extends Fragment {
         }
 
         //关联适配器
+        mRecyclerView.addItemDecoration(new MyDecoration());
         mRecyclerView.setAdapter(adapter);
+
+        mRecyclerView.setFocusable(false);
 
         //创建SimpLAdapter适配器
         //SimpleAdapter adapter = new SimpleAdapter(getActivity(), listitem, R.layout.find_fragment_listview,
@@ -166,6 +172,13 @@ public class find_fragment extends Fragment {
 //        });
         /******************************************************************************/
 
+    }
+    class MyDecoration extends RecyclerView.ItemDecoration{
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.set(0,0,0,getResources().getDimensionPixelOffset(R.dimen.dividerHeight));
+        }
     }
     private class GerstureListener implements GestureDetector.OnGestureListener {
         public boolean onDown(MotionEvent e) {

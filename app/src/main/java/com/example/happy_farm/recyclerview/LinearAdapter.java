@@ -43,20 +43,21 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
     private String[] mFrom; // 数据来源，来自Map里面的key
 
-    public LinearAdapter(Context context,List<? extends Map<String, ?>> data,int resource,String[] from,int[] to){
+    public LinearAdapter(Context context,List<? extends Map<String, ?>> data,int[] array,int resource,String[] from,int[] to){
 
         this.mContext = context;
-        if(mData != null){
-            this.mData.clear();;
+//        if(mData != null){
+//            this.mData.clear();;
             this.mData = data;
             this.mResource = resource;
             this.mFrom = from;
+            this.marray = array;
             this.mTo = to;
-        }
+//        }
 
     }
 
-    public LinearAdapter(Context context, List<? extends Map<String, ?>> data,int[] array){
+    public LinearAdapter(Context context, List<? extends Map<String, ?>> data,int[] array,int resource){
 
         this.mContext = context;
         //这么写存在bug
@@ -64,6 +65,7 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
         //   this.mData.clear();
             this.mData = data;
             this.marray = array;
+            this.mResource = resource;
        // }
     }
 
@@ -74,16 +76,22 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     @NonNull
     @Override
     public LinearAdapter.LinearViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(R.layout.find_fragment_listview,parent,false));
+        return new LinearViewHolder(LayoutInflater.from(mContext).inflate(this.mResource,parent,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull LinearAdapter.LinearViewHolder holder, final int position) {
 
+
+        holder.imageView = holder.itemView.findViewById(this.mTo[0]);
+        holder.title = holder.itemView.findViewById(this.mTo[1]);
+        holder.introduction = holder.itemView.findViewById(this.mTo[2]);
+
+
         Map<String, Object> map = (Map<String, Object>) mData.get(position);
         holder.imageView.setImageResource(marray[position]);
-        holder.title.setText(map.get("title").toString());
-        holder.introduction.setText(map.get("introduction").toString());
+        holder.title.setText(map.get(this.mFrom[0]).toString());
+        holder.introduction.setText(map.get(this.mFrom[1]).toString());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
 
@@ -128,9 +136,9 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
         public LinearViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.find_fragment_ListView_imageView);
-            title = itemView.findViewById(R.id.find_fragment_ListView_title);
-            introduction = itemView.findViewById(R.id.find_fragment_ListView_Introduction);
+//            imageView = itemView.findViewById(R.id.find_fragment_ListView_imageView);
+//            title = itemView.findViewById(R.id.find_fragment_ListView_title);
+//            introduction = itemView.findViewById(R.id.find_fragment_ListView_Introduction);
         }
     }
 }

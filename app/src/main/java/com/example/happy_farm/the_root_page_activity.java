@@ -34,6 +34,7 @@ import java.util.Map;
 
 public class the_root_page_activity extends AppCompatActivity {
 
+    private String Tag;
     //创建fragment对象
     private find_fragment findFragment;
     private home_fragment homeFragment;
@@ -58,44 +59,11 @@ public class the_root_page_activity extends AppCompatActivity {
         imageButUser = findViewById(R.id.Image_user);
 
 
-//        View.OnClickListener onClickListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                switch (view.getId()) {
-//                    case R.id.Image_find:
-//                        Toast.makeText(the_root_page_activity.this, "12345", Toast.LENGTH_LONG).show();
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,findFragment).commitAllowingStateLoss();
-//                        break;
-//                    case R.id.Image_home:
-//                        Toast.makeText(the_root_page_activity.this, "45??6", Toast.LENGTH_LONG).show();
-//                        if(homeFragment == null){
-//                            homeFragment = new home_fragment();
-//                        }
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,homeFragment).commitAllowingStateLoss();
-//                        break;
-//                    case R.id.Image_user:
-//                        Toast.makeText(the_root_page_activity.this, "123", Toast.LENGTH_LONG).show();
-//                        if(userFragment == null){
-//                            userFragment = new user_fragment();
-//                        }
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,userFragment).commitAllowingStateLoss();
-//                        break;
-//                    default:
-//                        Toast.makeText(the_root_page_activity.this, "?????", Toast.LENGTH_LONG).show();
-//                        break;
-//                }
-//            }
-//        };
-//        imageView1.setOnClickListener(onClickListener);
-//        imageView3.setOnClickListener(onClickListener);
-//        imageView3.setOnClickListener(onClickListener);
-
-
         //实例化find_fragment
         findFragment = new find_fragment();
         //把find_fragment添加到activity中
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment,findFragment).commitAllowingStateLoss();
+        Tag = "find";
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment,findFragment,"find").commitAllowingStateLoss();
         setListener();
 
     }
@@ -109,28 +77,59 @@ public class the_root_page_activity extends AppCompatActivity {
         public void onClick(View view){
             switch(view.getId()){
                 case R.id.Image_find:
-                    Toast.makeText(the_root_page_activity.this, "12345", Toast.LENGTH_LONG).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,findFragment).commitAllowingStateLoss();
+                    if(Tag != "find"){
+                        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Tag);
+                        if(fragment != null){
+                            getSupportFragmentManager().beginTransaction().hide(fragment).add(R.id.fragment,findFragment).addToBackStack(null).commitAllowingStateLoss();
+                        }
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment,findFragment).addToBackStack(null).commitAllowingStateLoss();
+                        }
+                    }
+                    //Toast.makeText(the_root_page_activity.this, "12345", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.Image_home:
-                    //Toast.makeText(the_root_page_activity.this, "45??6", Toast.LENGTH_LONG).show();
-                        if(homeFragment == null){
-                            homeFragment = new home_fragment();
+                    if(homeFragment == null){
+                        homeFragment = new home_fragment();
+                    }
+                    if(Tag != "home"){
+                        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Tag);
+                        if(fragment != null){
+                            getSupportFragmentManager().beginTransaction().hide(fragment).add(R.id.fragment,homeFragment).addToBackStack(null).commitAllowingStateLoss();
                         }
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,homeFragment).commitAllowingStateLoss();
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment,homeFragment).addToBackStack(null).commitAllowingStateLoss();
+                        }
+                    }
+                        //Toast.makeText(the_root_page_activity.this, "45??6", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.Image_user:
                     //Toast.makeText(the_root_page_activity.this, "123", Toast.LENGTH_LONG).show();
                         if(userFragment == null){
                             userFragment = new user_fragment();
                         }
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,userFragment).commit();
-                        if(userFragment != null)
-                            Toast.makeText(the_root_page_activity.this, "123", Toast.LENGTH_LONG).show();
+                    if(Tag != "user"){
+                        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Tag);
+                        if(fragment != null){
+                            getSupportFragmentManager().beginTransaction().hide(fragment).add(R.id.fragment,userFragment).addToBackStack(null).commitAllowingStateLoss();
+                        }
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment,userFragment).addToBackStack(null).commitAllowingStateLoss();
+                        }
+                    }
+//                        if(userFragment != null)
+//                            Toast.makeText(the_root_page_activity.this, "123", Toast.LENGTH_LONG).show();
                     break;
                 default:
-                       Toast.makeText(the_root_page_activity.this, "?????", Toast.LENGTH_LONG).show();
+//                       Toast.makeText(the_root_page_activity.this, "?????", Toast.LENGTH_LONG).show();
                     break;
+            }
+            if(view.getId() == R.id.Image_find){
+                Tag = "find";
+            } else if(view.getId() == R.id.Image_home){
+                Tag = "home";
+            } else if(view.getId() == R.id.Image_user){
+                Tag = "user";
             }
         }
     }

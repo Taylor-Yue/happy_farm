@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorWhite">
         <ImageView
-            android:id="@+id/find_fragment_ListView_imageView"
+            android:id="@+id/home_fragment_ListView_imageView"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:adjustViewBounds="true"
@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/find_fragment_ListView_title"
+                android:id="@+id/home_fragment_ListView_title"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textColor="@color/colorBlack"
@@ -32,7 +32,7 @@
                 android:padding="10dp"
                 android:layout_gravity="left"/>
             <TextView
-                android:id="@+id/find_fragment_ListView_Introduction"
+                android:id="@+id/home_fragment_ListView_Introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
