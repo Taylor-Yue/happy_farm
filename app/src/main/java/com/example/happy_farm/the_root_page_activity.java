@@ -58,7 +58,6 @@ public class the_root_page_activity extends AppCompatActivity {
         imageButHome = findViewById(R.id.Image_home);
         imageButUser = findViewById(R.id.Image_user);
 
-
         //实例化find_fragment
         findFragment = new find_fragment();
         //把find_fragment添加到activity中

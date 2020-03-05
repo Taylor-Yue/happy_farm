@@ -51,7 +51,6 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
             this.mFrom = from;
             this.marray = array;
             this.mTo = to;
-//        }
 
     }
 

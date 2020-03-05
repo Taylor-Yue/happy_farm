@@ -28,7 +28,7 @@ public class user_fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         userNameView = view.findViewById(R.id.Name_user);
         userImageView = view.findViewById(R.id.Image_user);
-        userNameView.setText("lyx ");
+        userNameView.setText("lyx");
         userImageView.setImageResource(R.drawable.ico_bar1);
     }
 }

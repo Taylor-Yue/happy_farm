@@ -147,9 +147,9 @@ public class find_fragment extends Fragment {
         }catch (Exception e){
             e.printStackTrace();
         }
+
         //画线
         mRecyclerView.addItemDecoration(new MyDecoration());
-
 
         //关联适配器
         mRecyclerView.setAdapter(adapter);
