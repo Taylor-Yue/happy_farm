@@ -46,8 +46,6 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     public LinearAdapter(Context context,List<? extends Map<String, ?>> data,int[] array,int resource,String[] from,int[] to){
 
         this.mContext = context;
-//        if(mData != null){
-//            this.mData.clear();;
             this.mData = data;
             this.mResource = resource;
             this.mFrom = from;

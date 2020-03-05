@@ -65,7 +65,6 @@ public class the_root_page_activity extends AppCompatActivity {
         Tag = "find";
         getSupportFragmentManager().beginTransaction().add(R.id.fragment,findFragment,"find").commitAllowingStateLoss();
         setListener();
-
     }
     private void setListener(){
         OnClick onClick = new OnClick();

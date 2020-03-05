@@ -25,9 +25,9 @@
             android:layout_height="match_parent">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/find_fragment_RecyclerView"
+                android:background="@color/colorDray"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorDray">
+                android:layout_height="match_parent">
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
     </LinearLayout>
