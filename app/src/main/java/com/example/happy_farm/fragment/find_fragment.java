@@ -1,21 +1,16 @@
 package com.example.happy_farm.fragment;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ScrollView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -25,8 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.happy_farm.FindFragmentItemActivity;
 import com.example.happy_farm.R;
-import com.example.happy_farm.recyclerview.FullyLinearLayoutManager;
 import com.example.happy_farm.recyclerview.LinearAdapter;
 
 import java.util.ArrayList;
@@ -44,7 +39,7 @@ public class find_fragment extends Fragment {
     private String[] introduction = new String[]{"哈","哈哈","哈哈哈","?????","hhahaha"};
     //private List<CarouselImage> data;//方便数据的写入和读取
     //手动切换起始坐标
-    private float startX;
+//    private float startX;
     //定义动画数组，为ViewFlipper指定切换动画
     private Animation[] animations = new Animation[5];
     //定义ViewFlipper
@@ -56,20 +51,15 @@ public class find_fragment extends Fragment {
 
     private GestureDetector gestureDetector;
 
-    private ScrollView scrollView;
-    private ListView listView;
-    private RecyclerView mRecyclerView;
-
 
     //消息代码
-    final int FLAG_MSG = 0X001;
-    //声明消息对象
-    private Message message;
+//    final int FLAG_MSG = 0X001;
+      //声明消息对象
+//    private Message message;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.find_fragment,container,false);
-        return view;
+        return inflater.inflate(R.layout.find_fragment, container, false);
     }
     public void onViewCreated(View view,@Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -119,7 +109,9 @@ public class find_fragment extends Fragment {
         /******************************************************************************/
 
         /********************************ListView实现*****************************************/
-        mRecyclerView = view.findViewById(R.id.find_fragment_RecyclerView);
+        //    private ScrollView scrollView;
+        //    private ListView listView;
+        RecyclerView mRecyclerView = view.findViewById(R.id.find_fragment_RecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //mRecyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));
 
@@ -141,7 +133,16 @@ public class find_fragment extends Fragment {
             adapter.setItemListener(new LinearAdapter.onRecyclerItemClickerListener() {
                 @Override
                 public void onClick(int pos) {
-                    Toast.makeText(getActivity(),"click" + pos,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(),"click" + pos,Toast.LENGTH_SHORT).show();
+                    //创建详情界面
+                    Intent intent = new Intent(getActivity(), FindFragmentItemActivity.class);
+                    //初始化Bundle
+                    Bundle bundle = new Bundle();
+                    //添加数据
+                    bundle.putInt("key",pos);
+                    //传数据
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
             });
         }catch (Exception e){
@@ -162,7 +163,9 @@ public class find_fragment extends Fragment {
             //    new int[]{R.id.find_fragment_ListView_imageView, R.id.find_fragment_ListView_title, R.id.find_fragment_ListView_Introduction});
         //获取ListView
         //listView = view.findViewById(R.id.find_fragment_ListView);
-        scrollView = view.findViewById(R.id.find_fragment_scrollview);
+
+//        scrollView = view.findViewById(R.id.find_fragment_scrollview);
+
         //listView.setAdapter(adapter);//关联适配器
         //为ListView添加监听器，获取选中项的值
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -172,7 +175,7 @@ public class find_fragment extends Fragment {
 //                Toast.makeText(getActivity(), map.get("title").toString(), Toast.LENGTH_LONG).show();
 //            }
 //        });
-        /******************************************************************************/
+        /*****************************************************************************/
 
     }
     class MyDecoration extends RecyclerView.ItemDecoration{
